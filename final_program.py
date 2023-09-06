@@ -193,6 +193,8 @@ class Win(WinGUI):
         # 获取最新一行的数据
         latest_row = self.data_time_table[-1]
         # 将时间列表中的元素转换为字符串，并使用":"连接起来
+        if latest_row[0] >=1:
+            latest_row[0]=0
         self.time_str = ":".join([str(time_value) for time_value in latest_row])
         self.tk_table_time_table.delete(*self.tk_table_time_table.get_children())  # 清空表格内容
         self.tk_table_time_table.insert("", "end", values=self.data_time_table[-1])  # 直接插入最新的数据行
